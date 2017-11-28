@@ -29,16 +29,36 @@ function getDependencies(packageJson) {
 }
 
 function moduleInfo(moduleName, dependencies) {
-    let deps = Object.entries(dependencies);
+    let deps = Object.entries(dependencies),
+        depArray = [];
 
-    console.log(`ℹ️  MODULE NAME: ${moduleName}`);
-    console.log("=== PINNED DEPENDENCIES ===");
     deps.forEach(dependency => {
         if(!notPinnedDepRegEx.test(dependency[1])) {
-            console.log(`💩  ${dependency[0]} => ${dependency[1]}`);
+            depArray.push(`💩  ${dependency[0]} => ${dependency[1]}`);
         }
     });
-    console.log("====================================");
-    console.log("");
-    console.log("");
+
+    return listPinnedDependencies(moduleName, depArray);
+}
+
+function listPinnedDependencies(moduleName, pinnedList) {
+    if (pinnedList.length > 0) {
+        console.log(`ℹ️  MODULE NAME: ${moduleName}`);
+        console.log("=== PINNED DEPENDENCIES ===");
+
+        pinnedList.forEach(pinned => {
+            console.log(pinned);
+        });
+
+        console.log("====================================");
+        console.log("");
+        console.log("");
+    } else {
+        console.log(`ℹ️  MODULE NAME: ${moduleName}`);
+        console.log("===")
+        console.log("✅  no pinned dependencies 🎉");
+        console.log("====================================");
+        console.log("");
+        console.log("");
+    }
 }
