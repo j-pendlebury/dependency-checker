@@ -2,6 +2,8 @@
 
 Looks for pinned dependencies in package.json of all morph_modules.
 
+Use Node6 or above.
+
 # Usage
 ```
 > git clone git@github.com:jblaut/dependency-checker.git
