@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "mydepcheck": "./src/index.js"
+    "depchecker": "./src/index.js"
   },
   "author": "J Blaut",
   "license": "ISC",

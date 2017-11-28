@@ -3,10 +3,10 @@
 const fs = require('file-system');
 const _ = require('lodash');
 
-const excludedFiles = ['.DS_Store', '.git', '.gitignore','DO NOT PUT ANYTHING IN THIS DIRECTORY.md','README.md'];
-const notPinnedDepRegEx = /^((\")?(\^){1}[0-9]+\.[0-9]+\.[0-9]+(\")?)$/;
+const excludedFiles = ['.DS_Store', '.git', '.gitignore','DO NOT PUT ANYTHING IN THIS DIRECTORY.md','README.md']; // because there are other files in the repo that are not modules
+const notPinnedDepRegEx = /^((\")?(\^){1}[0-9]+\.[0-9]+\.[0-9]+(\")?)$/; // looks for e.g. "^1.0.0" or ^1.0.0
 
-fs.readdirSync('../morph-modules').forEach(file => {
+fs.readdirSync('.').forEach(file => {
   openModule(file);
 });
 
