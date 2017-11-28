@@ -31,16 +31,14 @@ function getDependencies(packageJson) {
 function moduleInfo(moduleName, dependencies) {
     let deps = Object.entries(dependencies);
 
-    console.log("*** MODULE NAME ***");
-    console.log(moduleName);
-    console.log("*********");
-
-    console.log("=== PINNED DEPENDENCY ===");
+    console.log(`ℹ️  MODULE NAME: ${moduleName}`);
+    console.log("=== PINNED DEPENDENCIES ===");
     deps.forEach(dependency => {
         if(!notPinnedDepRegEx.test(dependency[1])) {
-            console.log(`NAME: ${dependency[0]} | VERSION: ${dependency[1]}`);
+            console.log(`💩  ${dependency[0]} => ${dependency[1]}`);
         }
     });
-    console.log("=========");
-    console.log("")
+    console.log("====================================");
+    console.log("");
+    console.log("");
 }
