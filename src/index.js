@@ -20,7 +20,12 @@ function openModule(file) {
 
 function getDependencies(packageJson) {
     if (_.isEmpty(packageJson.dependencies) && _.isEmpty(packageJson.devDependencies)) {
-        return console.log(`${packageJson.name} has no dependencies :(`);
+        console.log(`👎  MODULE NAME: ${packageJson.name.replace('bbc-morph-', '')}`);
+        console.log("===")
+        console.log("😢  has no dependencies");
+        console.log("====================================");
+        console.log("");
+        return console.log("");
     }
 
     let dependencies = Object.assign(packageJson.dependencies || {} , packageJson.devDependencies || {});
@@ -43,8 +48,8 @@ function moduleInfo(moduleName, dependencies) {
 
 function listPinnedDependencies(moduleName, pinnedList) {
     if (pinnedList.length > 0) {
-        console.log(`ℹ️  MODULE NAME: ${moduleName}`);
-        console.log("=== PINNED DEPENDENCIES ===");
+        console.log(`ℹ️  MODULE NAME: ${moduleName.replace('bbc-morph-', '')}`);
+        console.log("⚠️  PINNED DEPENDENCIES:");
 
         pinnedList.forEach(pinned => {
             console.log(pinned);
@@ -54,7 +59,7 @@ function listPinnedDependencies(moduleName, pinnedList) {
         console.log("");
         console.log("");
     } else {
-        console.log(`ℹ️  MODULE NAME: ${moduleName}`);
+        console.log(`ℹ️  MODULE NAME: ${moduleName.replace('bbc-morph-', '')}`);
         console.log("===")
         console.log("✅  no pinned dependencies 🎉");
         console.log("====================================");
