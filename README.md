@@ -2,7 +2,7 @@
 
 Looks for pinned dependencies in package.json of all morph_modules.
 
-Use Node6 or above.
+Use Node 9 or above.
 
 # Usage
 ```
